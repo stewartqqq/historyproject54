@@ -1,0 +1,617 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #e5e5e5;
+  --secondary-color: #a0a0a0;
+  --background-color: #1a1a1a;
+  --card-color: #2a2a2a;
+  --accent-color: #c9a66b;
+}
+
+body {
+  background: url(../images/slay.png);
+  background-repeat: repeat;
+  background-size: contain;
+  font-family: "Playfair Display", serif;
+  color: var(--primary-color);
+  margin: 0;
+  background-color: #232323;
+  scroll-behavior: smooth;
+}
+
+hr {
+  width: 30vw;
+  border: 0.1vw solid #c9a66b;
+  border-radius: 2vw;
+  /* margin: 0 2vw; */
+  margin-top: 3vw;
+  /* margin-bottom: 3vw; */
+}
+
+.ityceum-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5vw;
+  background-color: #161616;
+  color: white;
+  border-radius: 0 0 2vw 2vw;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+}
+
+.ityceum-header.show {
+  transform: translateY(0); /* Показываем хедер */
+}
+
+.ityceum-logo {
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.ityceum-nav {
+  display: flex;
+  gap: 1vw;
+}
+
+.ityceum-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1vw;
+}
+
+.ityceum-nav a:hover {
+  text-decoration: underline;
+}
+
+.ityceum-search-container {
+  display: flex;
+  align-items: center;
+}
+
+.ityceum-search-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+
+.ityceum-search-input {
+  width: 0;
+  height: 1vw;
+  padding: 0.5vw;
+  margin-left: 0.2vw;
+  background-color: #444;
+  color: white;
+  border: 0.1vw solid #666;
+  font-size: 1vw;
+  border-radius: 0.2vw;
+  outline: none;
+  transition: width 0.3s ease;
+}
+
+.ityceum-search-input.active {
+  width: 15vw;
+}
+/* Стиль кнопки поиска */
+.search-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-btn:hover {
+  color: var(--accent-color);
+}
+
+/* Контейнер для поиска */
+.search-container {
+  position: fixed;
+  bottom: 46.2vw;
+  right: 15vw;
+  transform: translateX(-50%) scaleX(0); /* Начальное состояние - скрыто */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0; /* Начальное состояние - полностью прозрачный */
+  z-index: 1001;
+}
+
+.search-container.active {
+  transform: translateX(-50%) scaleX(1); /* Выдвижение */
+  opacity: 1; /* Видимость */
+}
+
+.search-container input {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.search-container .search-close-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.search-container .search-close-btn:hover {
+  color: var(--accent-color);
+}
+/* Подсветка ключевых слов */
+.highlight {
+  background-color: red;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+.navigation {
+  margin-left: 14vw; /* Сдвигаем весь контейнер вправо */
+}
+
+.nav-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 1vw; /* Горизонтальные отступы */
+  margin-left: 1vw; /* Добавляем отступ слева */
+  text-transform: uppercase;
+  font-size: 1.1vw;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.video-section {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-section video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Отправляем видео на задний план */
+  object-fit: cover; /* Чтобы видео сохраняло пропорции */
+}
+
+.hero {
+  height: 100vh;
+  background-image: url("../media/Kazakhstan\ in\ 4K_1080p.mp4");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--primary-color);
+}
+
+.title {
+  font-size: 3vw;
+  text-transform: uppercase;
+  margin-bottom: 0vw;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.subtitle {
+  font-size: 2vw;
+  margin-bottom: 2vw;
+  margin-top: 0;
+  font-style: italic;
+  animation: fadeIn 2s ease-out;
+}
+
+.explore-btn {
+  padding: 1vw 2vw;
+  border: 0.2vw solid var(--accent-color);
+  color: var(--primary-color);
+  background: none;
+  cursor: pointer;
+  font-size: 1vw;
+  border-radius: 100vw;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  transform: scale(1.1);
+}
+
+/* Стили для карточек */
+.grid-section {
+  padding: 1vw 1vw; /* Уменьшаем внешние отступы */
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 25vw));
+  margin-top: 5vw;
+  gap: 2vw; /* Минимальный промежуток между карточками */
+}
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Используем 100% ширины окна */
+  height: 100vh; /* Используем 100% высоты окна */
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-content {
+  top: 5vw;
+  position: absolute;
+  background-color: #333;
+  color: white;
+  padding: 4vw; /* Паддинг зависит от ширины окна */
+  border-radius: 2vw; /* Закругленные углы в vw */
+  text-align: center;
+  width: 75vw; /* Ширина окна зависит от ширины экрана */
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2); /* Тени в vw */
+}
+
+.custom-modal-content h2 {
+  margin: 0 0 2vw; /* Отступы под заголовком */
+  font-size: 2.5vw; /* Размер шрифта */
+}
+
+.custom-modal-content p {
+  margin: 0;
+  font-size: 1.5vw; /* Размер шрифта для текста */
+}
+
+.custom-close-btn {
+  height: 1vw;
+  width: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  background: none;
+  border: none;
+  font-size: 4vw; /* Размер шрифта для кнопки */
+  color: white;
+  cursor: pointer;
+}
+
+.custom-close-btn:hover {
+  color: red;
+}
+
+.custom-modal.show {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+/* Контейнер карточки */
+.grid-item {
+  perspective: 1000px; /* Еще меньше перспектива */
+}
+
+/* Карточка с анимацией */
+.card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 130%; /* Еще меньше высота относительно ширины */
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+/* Класс для переворота карточки */
+.card-inner.clicked {
+  transform: rotateY(180deg);
+}
+
+/* Фронт и спина карточки */
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  backface-visibility: hidden;
+  gap: 0.45vw;
+  border-radius: 1vw; /* Еще меньше радиус */
+  padding: 0.25vw; /* Меньше внутренний отступ */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для передней стороны */
+.card-front {
+  background-color: var(--card-color);
+  justify-content: end;
+  user-select: none;
+}
+
+.grid-item:nth-child(2) .card-front {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://e-history.kz/storage/tmp/resize/prominent-figures/1200_0_a78456c811efa07c0bcf4d05636f0487.jpg);
+  /* background-color: #161616; */
+  background-size: cover;
+}
+.grid-item:nth-child(3) .card-front {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://e-history.kz/media/upload/4624/2015/07/01/96bcb89a6afd1621ab5ed613c4718a32.jpg);
+  /* background-color: #161616; */
+  background-size: cover;
+}
+.grid-item:nth-child(4) .card-front {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://avatars.mds.yandex.net/i?id=89a274557ad7e003058b211e08708cde_l-4863507-images-thumbs&n=13);
+  /* background-color: #161616; */
+  background-size: cover;
+}
+
+.card-front p,
+.card-front h3 {
+  margin: 0;
+}
+.card-front h3 {
+  font-size: 2vw;
+}
+.card-front p {
+  font-size: 1.15vw;
+  margin-bottom: 2vw;
+}
+
+/* Стили для задней стороны */
+.card-back {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  transform: rotateY(180deg);
+  padding: 2vw;
+  font-size: 1vw;
+}
+.card-back button {
+  width: 8vw;
+  height: 3vw;
+  background-color: #161616;
+  border-radius: 2vw;
+  color: aliceblue;
+  font-size: 0.8vw;
+  border: 0;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 2vw;
+  position: relative;
+}
+
+.scroll-section {
+  height: 30vw;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 2vw;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1vw;
+}
+
+.scroll-section::-webkit-scrollbar {
+  height: 0.8vw;
+}
+
+.scroll-section::-webkit-scrollbar-thumb {
+  background-color: #c9a66b;
+  border-radius: 0.4vw;
+}
+
+.card {
+  width: 25vw;
+  height: 20vw;
+  background-color: #222;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 1vw;
+  padding: 2vw;
+  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  transition: 150ms ease-in-out;
+}
+.card:hover {
+  scale: 1.05;
+}
+.card h3 {
+  margin-top: 0;
+  color: #c9a66b;
+  font-size: 1.5vw;
+}
+
+.scroll-button {
+  width: 4vw;
+  height: 4vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #c9a66b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1vw;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 2vw;
+  border-radius: 5vw;
+}
+
+.scroll-button-left {
+  left: 2vw;
+}
+
+.scroll-button-right {
+  right: 2.2vw;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vw;
+}
+
+.map h1 {
+  font-size: 3vw;
+  color: white;
+  margin-bottom: 2vw;
+  text-align: center;
+}
+
+.map iframe {
+  width: 100%;
+  max-width: 52.08vw;
+  height: 31.25vw;
+  border-radius: 1vw;
+  margin-bottom: 1vw;
+}
+
+.content {
+  min-height: calc(100vh - 70px); /* Высота экрана минус высота футера */
+  padding: 20px;
+}
+
+/* Обёртка футера */
+.page-wrapper {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Футер */
+footer {
+  background-color: #c9a66b;
+  color: #232323;
+  padding: 1vw 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Waterdrop */
+#waterdrop {
+  height: 2vw;
+  margin-top: 1vw;
+}
+
+#waterdrop canvas {
+  bottom: -4vw !important;
+}
+
+/* Ссылки футера */
+.footer-links {
+  /* margin-top: 2vw; */
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+.widget p {
+  font-size: 1vw;
+}
+
+.footer-link {
+  color: #232323;
+  text-decoration: none;
+  /* margin: 0 10px; */
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #eaeaea;
+}
+
+/* footer {
+  background-color: var(--card-color);
+  padding: 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.footer-link {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
+} */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

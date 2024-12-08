@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>WWI Historical Page</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header id="ityceum-header" class="ityceum-header">
+      <div class="ityceum-logo">ITLyceum54</div>
+      <nav class="ityceum-nav">
+        <a href="#">Главная</a>
+        <a href="./index.html#hero">Ханы</a>
+        <a href="./index.html#map">Карта Казахского Ханства</a>
+      </nav>
+      <div class="ityceum-search-container">
+        <button id="ityceum-searchBtn" class="ityceum-search-btn">🔍</button>
+        <input
+          type="text"
+          id="ityceum-searchInput"
+          class="ityceum-search-input"
+          placeholder="Search..."
+        />
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="video-section">
+        <video autoplay muted loop playsinline>
+          <source src="./images/IMG_6474 (online-video-cutter.com).mp4" type="video/mp4" />
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+      <div class="hero-content">
+        <h1 class="title">Правители Казахского ханства</h1>
+        <p class="subtitle">Величие древнего мира</p>
+        <button class="explore-btn">
+          <span class="explore-text">Узнать больше</span>
+          <span class="explore-icon">↓</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Карточки -->
+    <section class="grid-section" id="hero">
+      <div class="custom-modal" id="modal">
+        <div class="custom-modal-content">
+          <button class="custom-close-btn">&times;</button>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+      <div class="grid-item" onclick="toggleCard(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>Керей Хан</h3>
+            <p>Один из основателей Казахского ханства</p>
+          </div>
+          <div class="card-back">
+            <p>
+              Керей хан (1456–1472) Керей хан, один из основателей Казахского
+              ханства, возглавил переселение казахских племён в Могулистан в
+              1456 году, стремясь создать независимое государство. Он укрепил
+              внутренние структуры ханства и наладил связи с соседними странами.
+              Его правление было кратким (16 лет), но основополагающим для
+              будущего ханства.
+            </p>
+            <button onclick="func(1)">Узнать больше</button>
+          </div>
+        </div>
+      </div>
+      <div class="grid-item" onclick="toggleCard(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>Жанибек хан</h3>
+            <p>Один из основателей Казахского ханства</p>
+          </div>
+          <div class="card-back">
+            <p>
+              Жанибек хан (1472–1512) Жанибек хан, второй правитель Казахского
+              ханства, продолжил дело Керея, расширив территорию ханства и
+              усилив его влияние в Центральной Азии. Он укрепил армию и наладил
+              политические союзы. Его правление стало временем экономического
+              роста и укрепления государственной стабильности.
+            </p>
+            <button onclick="func(2)">Узнать больше</button>
+          </div>
+        </div>
+      </div>
+      <div class="grid-item" onclick="toggleCard(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>Касым хан</h3>
+            <p>Казахский хан чингизид</p>
+          </div>
+          <div class="card-back">
+            <p>
+              Касым хан (1512–1521) Касым хан расширил территорию Казахского
+              ханства и установил дипломатические отношения с соседями, включая
+              Московское княжество. Он внедрил новый свод законов «Прямой путь
+              Касым хана», что улучшило правосудие и управление. Его правление
+              стало символом могущества ханства..
+            </p>
+            <button onclick="func(3)">Узнать больше</button>
+          </div>
+        </div>
+      </div>
+      <!-- Добавьте еще карточки при необходимости -->
+    </section>
+
+    <hr />
+
+    <div class="container">
+      <button class="scroll-button scroll-button-left" id="scrollLeft">
+        &#9664;
+      </button>
+      <div class="scroll-section" id="scrollSection">
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://massaget.kz/userdata/news/news_52920/image_l.jpg)
+                no-repeat center center / cover;
+          "
+          onclick="func(4)"
+        >
+          <h3>Хан Тахир</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://atpress.kz/images/2023-08/4aae766da72bd0bd.webp)
+                no-repeat center center / cover;
+          "
+          onclick="func(5)"
+        >
+          <h3>Хакназар хан</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://sun9-21.userapi.com/impf/c633525/v633525898/19729/-1H6sWTrbkI.jpg?size=595x693&quality=96&sign=7de71f83bd1bca23358f771f038dc2c1&c_uniq_tag=K4ojxeIAN13jZLOkO-c1_875CVnNAUcw_h_DoadfZCo&type=album)
+                no-repeat center center / cover;
+          "
+          onclick="func(6)"
+        >
+          <h3>Шыгай хан</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://egemen.kz/article_photo/1552361052_article_b.jpeg)
+                no-repeat center center / cover;
+          "
+          onclick="func(7)"
+        >
+          <h3>Тауекел хан</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://avatars.mds.yandex.net/i?id=8886e8749fa414d39f7dfd109d1243cc-5369423-images-thumbs&n=13)
+                no-repeat center center / cover;
+          "
+          onclick="func(8)"
+        >
+          <h3>Есим хан</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://zhaikpress.kz/wp-content/oraloniri/news/img/2024/01/WhatsApp-Image-2024-01-23-at-15.03.27-e1706004253755.jpeg)
+                no-repeat center center / cover;
+          "
+          onclick="func(9)"
+        >
+          <h3>Тауке хан</h3>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(https://sun1-84.userapi.com/s/v1/ig2/REgNlGDHwV_DJy8FNAgp2ZlJXw9bihAp2n8urAeoTkyxN2UqwesYorU1oeaSd4ygImkQgo1FD6N-_vzt---FK29w.jpg?size=400x400&quality=96&crop=120,120,960,960&ava=1)
+                no-repeat center center / cover;
+          "
+          onclick="func(10)"
+        >
+          <h3>Есим хан</h3>
+        </div>
+      </div>
+      <button class="scroll-button scroll-button-right" id="scrollRight">
+        &#9654;
+      </button>
+    </div>
+
+    <div class="map" id="map">
+      <h1>Центр Казахского ханства</h1>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1480930.0103931685!2d67.6816189264983!3d43.53483701408653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4200c26160a6c6bf%3A0xc25a313979c57875!2sTurkistan!5e0!3m2!1sen!2skz!4v1733637740241!5m2!1sen!2skz"
+        width="900"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-wrapper">
+      <div id="waterdrop"></div>
+      <footer>
+        <div class="footer-top">
+          <div class="pt-exebar"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-12 col-sm-12 footer-col-3">
+                <div class="widget footer_widget">
+                  <p>© Злавдинов Леким | Егорин Лев 2024</p>
+                  <div class="footer-links">
+                    <a href="#" class="footer-link">Главная</a>
+                    <a href="./index.html#hero" class="footer-link">Ханы</a>
+                    <a href="./index.html#map" class="footer-link"
+                      >Карта Казахского Ханства</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script src="index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+  <script>
+    jQuery("#waterdrop").raindrops({
+      color: "#c9a66b",
+      canvasHeight: 150,
+      density: 0.1,
+      frequency: 20,
+    });
+  </script>
+  <script>
+    window.embeddedChatbotConfig = {
+      chatbotId: "KPYSXK7b4VwjHLadVMx3P",
+      domain: "www.chatbase.co",
+    };
+  </script>
+  <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="KPYSXK7b4VwjHLadVMx3P"
+    domain="www.chatbase.co"
+    defer
+  ></script>
+</html>
