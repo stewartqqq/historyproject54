@@ -9,7 +9,7 @@
 }
 
 body {
-  background: url(../images/slay.png);
+  background: url(./images/slay.png);
   background-repeat: repeat;
   background-size: contain;
   font-family: "Playfair Display", serif;
